@@ -31,7 +31,6 @@ const App = () => {
 
   return (
     <>
-      {console.log(filtredJobs)}
       <Header />
       <div className="container">
         <FilterBar

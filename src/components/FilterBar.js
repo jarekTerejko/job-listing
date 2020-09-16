@@ -4,10 +4,7 @@ import ButtonDelete from "./ButtonDelete";
 const FilterBar = ({ filtredJobs, deleteFilter, clearFilter }) => {
   if (filtredJobs.length) {
     return (
-      <div
-        className="filter-bar"
-        style={{ padding: "20px", background: "red" }}
-      >
+      <div className="filter-bar">
         <div>
           {filtredJobs.map((job) => {
             return (
@@ -15,7 +12,9 @@ const FilterBar = ({ filtredJobs, deleteFilter, clearFilter }) => {
             );
           })}
         </div>
-        <button className="filter-bar__clear-btn" onClick={clearFilter}>Clear</button>
+        <button className="filter-bar__clear-btn" onClick={clearFilter}>
+          Clear
+        </button>
       </div>
     );
   } else return null;

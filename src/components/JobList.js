@@ -1,13 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import JobItem from "./JobItem";
-// import JobContext from "../context/JobContext";
 
 const JobList = ({ jobList, filtredJobs, addFilter }) => {
   let filterArr;
   if (jobList) {
     return (
-      <ul>
-        {console.log(jobList)}
+      <ul className="jobs">
         {filtredJobs.length === 0
           ? jobList.map((job) => {
               return <JobItem job={job} key={job.id} addFilter={addFilter} />;
@@ -20,8 +18,16 @@ const JobList = ({ jobList, filtredJobs, addFilter }) => {
                 ...job.tools,
               ].map((f) => f.toLowerCase());
               if (filtredJobs.every((f) => filterArr.includes(f))) {
-                return <JobItem job={job} key={job.id} addFilter={addFilter} />;
+                return (
+                  <JobItem
+                    job={job}
+                    key={job.id}
+                    addFilter={addFilter}
+                    imgSrc={job.logo}
+                  />
+                );
               }
+              return null;
             })}
       </ul>
     );
